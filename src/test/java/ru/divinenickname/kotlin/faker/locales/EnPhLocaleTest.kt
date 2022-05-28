@@ -3,9 +3,7 @@ package ru.divinenickname.kotlin.faker.locales
 import org.junit.jupiter.api.Test
 import java.util.*
 
-class EnPhLocaleTest() : CommonTest(Locale("PH")) {
-
-    private val locale: Locale = Locale("PH")
+class EnPhLocaleTest : CommonTest(Locale("PH")) {
 
     @Test
     override fun numberLengthTest() {
