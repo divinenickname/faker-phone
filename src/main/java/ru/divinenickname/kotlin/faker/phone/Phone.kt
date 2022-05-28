@@ -11,7 +11,7 @@ class Phone(
     private val file = File(this.javaClass.getResource("/locales/${locale.language}.yaml").path)
     private val properties = objectMapper.readValue(file, Properties::class.java)
 
-    val number = Number(properties.normalizedFormat).number
+    val number = Number(properties.normalizedFormat.random()).number
     val international = "${properties.codes.country}$number"
     val trunk = "${properties.codes.trunk}$number"
 }
