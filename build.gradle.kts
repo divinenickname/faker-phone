@@ -20,6 +20,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:${Versions.JUNIT}")
     testImplementation("org.junit.jupiter:junit-jupiter-api:${Versions.JUNIT}")
     testImplementation("io.kotest:kotest-assertions-core-jvm:${Versions.KOTEST}")
+    testImplementation("com.googlecode.libphonenumber:libphonenumber:${Versions.LIBPHONENUMBER}")
 }
 
 tasks.withType<Test> {
