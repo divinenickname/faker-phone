@@ -1,0 +1,5 @@
+codes:
+  country: "+7"
+  trunk: "8"
+format: "(###) ###-##-##"
+normalizedFormat: "##########"
