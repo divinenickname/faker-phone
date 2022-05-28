@@ -1,11 +1,14 @@
 package ru.divinenickname.kotlin.faker.locales
 
+import com.google.i18n.phonenumbers.PhoneNumberUtil
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import ru.divinenickname.kotlin.faker.phone.Phone
 import java.util.*
 
 abstract class CommonTest(private val locale: Locale) {
+
+    val util = PhoneNumberUtil.getInstance()
 
     @Test
     abstract fun numberLengthTest()
@@ -46,5 +49,15 @@ abstract class CommonTest(private val locale: Locale) {
         val phone = Phone(locale)
 
         phone.trunk.subSequence(0, prefix.length) shouldBe prefix
+    }
+
+    @Test
+    fun testInternationalViaGoogleLibrary() {
+        val phone = Phone(locale)
+        val languageTag = locale.toLanguageTag().uppercase()
+        val proto = util.parse(phone.international, languageTag)
+        val actual = util.isValidNumberForRegion(proto, languageTag)
+
+        actual shouldBe true
     }
 }
