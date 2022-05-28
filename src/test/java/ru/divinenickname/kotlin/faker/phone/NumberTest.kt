@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test
 
 class NumberTest {
 
-    @RepeatedTest(100)
+    @Test
     fun digitTest() {
         val number = Number("#1#3###")
         val actual = number.number
@@ -17,7 +17,7 @@ class NumberTest {
         }
     }
 
-    @RepeatedTest(100)
+    @Test
     fun definedNumberTest() {
         val number = Number("#1#3####")
         val actual = number.number
